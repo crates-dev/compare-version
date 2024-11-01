@@ -1,6 +1,6 @@
 # Compare version
 
-[Official Documentation](https://docs.ltpp.vip/compare_version/)
+[Official Documentation](https://docs.ltpp.vip/COMPARE_VERSION/)
 
 A Rust library for comparing semantic versioning strings and checking version compatibility.
 
