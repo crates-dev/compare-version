@@ -1,0 +1,10 @@
+[package]
+name = "compare_version"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "A Rust library for comparing semantic versioning strings and checking version compatibility."
+keywords = ["version", "comparison", "semver", "rust"]
+repository = "https://github.com/ltpp-universe/compare_version"
+
+[dependencies]
