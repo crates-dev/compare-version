@@ -1,6 +1,6 @@
 [package]
 name = "compare_version"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 license = "MIT"
 description = "A Rust library for comparing semantic versioning strings and checking version compatibility."
@@ -9,11 +9,14 @@ repository = "https://github.com/ltpp-universe/compare_version"
 categories = ["algorithms", "development-tools", "rust-patterns"]
 
 [profile.dev]
-incremental = true
+incremental = false
 opt-level = 3
 lto = true
 panic = "abort"
 debug = false
+codegen-units = 1
+strip = "debuginfo"
+backtrace = "off"
 
 [profile.release]
 incremental = false

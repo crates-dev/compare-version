@@ -11,6 +11,7 @@ impl Version {
     ///
     /// Returns a `VersionError` if the version format is invalid or if any version
     /// components cannot be parsed.
+    #[inline]
     pub(crate) fn parse(version: &str) -> Result<Self, VersionError> {
         let mut parts: Vec<&str> = version.split('.').collect();
         let (patch_part, pre_release) = if let Some(patch_with_prerelease) = parts.pop() {
