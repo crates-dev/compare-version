@@ -1,6 +1,6 @@
 [package]
 name = "compare_version"
-version = "0.2.4"
+version = "0.2.5"
 edition = "2021"
 license = "MIT"
 description = "A Rust library for comparing semantic versioning strings and checking version compatibility."
@@ -12,7 +12,7 @@ categories = ["algorithms", "development-tools", "rust-patterns"]
 incremental = false
 opt-level = 3
 lto = true
-panic = "abort"
+panic = "unwind"
 debug = false
 codegen-units = 1
 strip = "debuginfo"
@@ -22,7 +22,7 @@ backtrace = "off"
 incremental = false
 opt-level = 3
 lto = true
-panic = "abort"
+panic = "unwind"
 debug = false
 codegen-units = 1
 strip = "debuginfo"
