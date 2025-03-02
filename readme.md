@@ -3,6 +3,7 @@
 # Compare version
 
 [![](https://img.shields.io/crates/v/compare_version.svg)](https://crates.io/crates/compare_version)
+[![](https://img.shields.io/crates/d/compare_version.svg)](https://img.shields.io/crates/d/compare_version.svg)
 [![](https://docs.rs/compare_version/badge.svg)](https://docs.rs/compare_version)
 [![](https://github.com/ltpp-universe/compare_version/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/compare_version/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/compare_version.svg)](./LICENSE)
