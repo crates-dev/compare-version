@@ -1,7 +1,7 @@
 [package]
 name = "compare_version"
-version = "0.2.8"
-edition = "2021"
+version = "0.3.0"
+edition = "2024"
 license = "MIT"
 description = "A Rust library for comparing semantic versioning strings and checking version compatibility."
 keywords = ["version", "comparison", "semver", "rust"]
