@@ -21,7 +21,6 @@ use super::{
 /// let result = compare_versions("1.2.3", "1.2.4");
 /// assert_eq!(result, Ok(VersionComparison::Less));
 /// ```
-#[inline]
 pub fn compare_versions(version1: &str, version2: &str) -> Result<VersionComparison, VersionError> {
     let v1: Version = Version::parse(version1)?;
     let v2: Version = Version::parse(version2)?;
@@ -56,7 +55,6 @@ pub fn compare_versions(version1: &str, version2: &str) -> Result<VersionCompari
 /// let matches = matches_version_range("1.2.3", "~1.2.4");
 /// assert_eq!(matches, Ok(false));
 /// ```
-#[inline]
 pub fn matches_version_range(version: &str, range: &str) -> Result<bool, VersionError> {
     let target_version: Version = Version::parse(version)?;
     if let Some(stripped_range) = range.strip_prefix('^') {

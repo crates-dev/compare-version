@@ -11,7 +11,6 @@ pub enum VersionError {
 }
 
 impl fmt::Display for VersionError {
-    #[inline]
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
             VersionError::ParseError(msg) => write!(f, "Parse error: {}", msg),
