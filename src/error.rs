@@ -1,4 +1,4 @@
-use std::fmt;
+use crate::*;
 
 /// Define an enumeration for version errors
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]

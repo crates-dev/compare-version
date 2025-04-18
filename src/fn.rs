@@ -1,7 +1,4 @@
-use super::{
-    error::VersionError,
-    r#type::{Version, VersionComparison},
-};
+use crate::*;
 
 /// Compares two version strings and returns a `VersionComparison` enum.
 ///

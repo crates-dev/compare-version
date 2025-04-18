@@ -1,4 +1,4 @@
-use super::{error::VersionError, r#type::Version};
+use crate::*;
 
 impl Version {
     /// Parses a version from a string.
