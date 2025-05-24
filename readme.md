@@ -33,11 +33,12 @@ cargo add compare_version
 
 ```rust
 use compare_version::*;
-let result = compare_versions("1.2.3", "1.2.4");
+
+let result = CompareVersion::compare_version("1.2.3", "1.2.4");
 assert_eq!(result, Ok(VersionComparison::Less));
-let matches = matches_version_range("1.2.3", "^1.2.0");
+let matches = CompareVersion::matches_version_range("1.2.3", "^1.2.0");
 assert_eq!(matches, Ok(true));
-let matches = matches_version_range("1.2.3", "~1.2.4");
+let matches = CompareVersion::matches_version_range("1.2.3", "~1.2.4");
 assert_eq!(matches, Ok(false));
 ```
 
