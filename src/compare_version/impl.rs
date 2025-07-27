@@ -5,12 +5,11 @@ impl Version {
     ///
     /// # Arguments
     ///
-    /// - `version` - A string slice that holds the version in the format 'x.y.z'.
+    /// - `&str` - A string slice that holds the version in the format 'x.y.z'.
     ///
-    /// # Errors
+    /// # Returns
     ///
-    /// Returns a `VersionError` if the version format is invalid or if any version
-    /// components cannot be parsed.
+    /// - `Result<Self, VersionError>` - A `Result` indicating the parsed `Version` struct on success, or a `VersionError` on failure.
     pub(crate) fn parse(version: &str) -> Result<Self, VersionError> {
         let mut parts: Vec<&str> = version.split('.').collect();
         let (patch_part, pre_release) = if let Some(patch_with_prerelease) = parts.pop() {
@@ -51,20 +50,12 @@ impl CompareVersion {
     ///
     /// # Arguments
     ///
-    /// - `version1` - A string slice that holds the first version to compare.
-    /// - `version2` - A string slice that holds the second version to compare.
+    /// - `&str` - The first version string to compare.
+    /// - `&str` - The second version string to compare.
     ///
-    /// # Errors
+    /// # Returns
     ///
-    /// Returns a `VersionError` if either version cannot be parsed.
-    ///
-    /// # Examples
-    ///
-    /// ```
-    /// use compare_version::*;
-    /// let result = CompareVersion::compare_version("1.2.3", "1.2.4");
-    /// assert_eq!(result, Ok(VersionComparison::Less));
-    /// ```
+    /// - `Result<VersionComparison, VersionError>` - A `Result` indicating the comparison result on success, or a `VersionError` on failure.
     pub fn compare_version(
         version1: &str,
         version2: &str,
@@ -82,26 +73,12 @@ impl CompareVersion {
     ///
     /// # Arguments
     ///
-    /// - `version` - A string slice that holds the version to check against the range.
-    /// - `range` - A string slice that holds the version range to check.
+    /// - `&str` - The version string to check.
+    /// - `&str` - The version range string to match against.
     ///
-    /// # Errors
+    /// # Returns
     ///
-    /// Returns a `VersionError` if the version or range cannot be parsed.
-    ///
-    /// # Examples
-    ///
-    /// ```
-    /// use compare_version::*;
-    /// let matches = CompareVersion::matches_version_range("1.2.3", "^1.2.0");
-    /// assert_eq!(matches, Ok(true));
-    /// ```
-    ///
-    /// ```
-    /// use compare_version::*;
-    /// let matches = CompareVersion::matches_version_range("1.2.3", "~1.2.4");
-    /// assert_eq!(matches, Ok(false));
-    /// ```
+    /// - `Result<bool, VersionError>` - A `Result` indicating whether the version matches the range on success, or a `VersionError` on failure.
     pub fn matches_version_range(version: &str, range: &str) -> Result<bool, VersionError> {
         let target_version: Version = Version::parse(version)?;
         if let Some(stripped_range) = range.strip_prefix('^') {

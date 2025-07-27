@@ -1,6 +1,6 @@
 <center>
 
-# Compare version
+# compare_version
 
 [![](https://img.shields.io/crates/v/compare_version.svg)](https://crates.io/crates/compare_version)
 [![](https://img.shields.io/crates/d/compare_version.svg)](https://img.shields.io/crates/d/compare_version.svg)
@@ -12,7 +12,7 @@
 
 [Official Documentation](https://docs.ltpp.vip/COMPARE_VERSION/)
 
-A Rust library for comparing semantic versioning strings and checking version compatibility.
+> A Rust library for comparing semantic versioning strings and checking version compatibility.
 
 ## Features
 
