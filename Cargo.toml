@@ -1,13 +1,13 @@
 [package]
 name = "compare_version"
-version = "1.2.1"
+version = "1.2.2"
 readme = "README.md"
 edition = "2024"
 authors = ["root@ltpp.vip"]
 license = "MIT"
 description = "A Rust library for comparing semantic versioning strings and checking version compatibility."
 keywords = ["version", "comparison", "semver", "rust"]
-repository = "https://github.com/eastspire/compare-version"
+repository = "https://github.com/crates-dev/compare-version"
 categories = ["algorithms", "development-tools", "rust-patterns"]
 
 [profile.dev]
