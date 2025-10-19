@@ -24,7 +24,7 @@ impl Version {
             ));
         };
         let major: u32 = parts
-            .get(0)
+            .first()
             .unwrap_or(&"0")
             .parse::<u32>()
             .map_err(|_| VersionError::MajorVersionError)?;
