@@ -28,7 +28,7 @@ impl fmt::Display for VersionError {
     /// - `fmt::Result` - Result of the formatting operation.
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            VersionError::ParseError(msg) => write!(f, "Parse error: {}", msg),
+            VersionError::ParseError(msg) => write!(f, "Parse error: {msg}"),
             VersionError::InvalidRangeFormat => {
                 write!(f, "Unsupported range format, only '^' or '~' are supported")
             }
