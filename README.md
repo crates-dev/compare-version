@@ -29,19 +29,6 @@ To use this crate, you can run cmd:
 cargo add compare_version
 ```
 
-## Examples
-
-```rust
-use compare_version::*;
-
-let result = CompareVersion::compare_version("1.2.3", "1.2.4");
-assert_eq!(result, Ok(VersionComparison::Less));
-let matches = CompareVersion::matches_version_range("1.2.3", "^1.2.0");
-assert_eq!(matches, Ok(true));
-let matches = CompareVersion::matches_version_range("1.2.3", "~1.2.4");
-assert_eq!(matches, Ok(false));
-```
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

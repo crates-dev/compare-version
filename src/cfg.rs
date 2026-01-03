@@ -44,70 +44,40 @@ fn test_matches_version_range() {
     let version: &str = "1.2.3-alpha";
     let range1: &str = "^1.2.0";
     let range2: &str = "~1.2.3";
-    let result: bool = match CompareVersion::matches_version_range(version, range1) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, true);
-    let result: bool = match CompareVersion::matches_version_range(version, range2) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, true);
+    let result: bool = CompareVersion::matches_version_range(version, range1).unwrap_or_default();
+    assert!(result);
+    let result: bool = CompareVersion::matches_version_range(version, range2).unwrap_or_default();
+    assert!(result);
 
     let version: &str = "1.2.5-alpha";
     let range1: &str = "^1.2.0";
     let range2: &str = "~1.2.3";
-    let result: bool = match CompareVersion::matches_version_range(version, range1) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, true);
-    let result: bool = match CompareVersion::matches_version_range(version, range2) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, true);
+    let result: bool = CompareVersion::matches_version_range(version, range1).unwrap_or_default();
+    assert!(result);
+    let result: bool = CompareVersion::matches_version_range(version, range2).unwrap_or_default();
+    assert!(result);
 
     let version: &str = "1.3.0";
     let range1: &str = "^1.2.0";
     let range2: &str = "~1.2.3";
-    let result: bool = match CompareVersion::matches_version_range(version, range1) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, true);
-    let result: bool = match CompareVersion::matches_version_range(version, range2) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, false);
+    let result: bool = CompareVersion::matches_version_range(version, range1).unwrap_or_default();
+    assert!(result);
+    let result: bool = CompareVersion::matches_version_range(version, range2).unwrap_or_default();
+    assert!(!result);
 
     let version: &str = "2.0.0";
     let range1: &str = "^1.2.0";
     let range2: &str = "~1.2.3";
-    let result: bool = match CompareVersion::matches_version_range(version, range1) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, false);
-    let result: bool = match CompareVersion::matches_version_range(version, range2) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, false);
+    let result: bool = CompareVersion::matches_version_range(version, range1).unwrap_or_default();
+    assert!(!result);
+    let result: bool = CompareVersion::matches_version_range(version, range2).unwrap_or_default();
+    assert!(!result);
 
     let version: &str = "1.0.0";
     let range1: &str = "^1.2.0";
     let range2: &str = "~1.2.3";
-    let result: bool = match CompareVersion::matches_version_range(version, range1) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, false);
-    let result: bool = match CompareVersion::matches_version_range(version, range2) {
-        Ok(matches) => matches,
-        Err(_) => false,
-    };
-    assert_eq!(result, false);
+    let result: bool = CompareVersion::matches_version_range(version, range1).unwrap_or_default();
+    assert!(!result);
+    let result: bool = CompareVersion::matches_version_range(version, range2).unwrap_or_default();
+    assert!(!result);
 }
