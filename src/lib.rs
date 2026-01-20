@@ -3,9 +3,13 @@
 //! A Rust library for comparing semantic versioning
 //! strings and checking version compatibility.
 
-pub(crate) mod cfg;
-pub(crate) mod compare_version;
+pub(crate) mod r#enum;
+pub(crate) mod r#impl;
+pub(crate) mod r#struct;
 
-pub use compare_version::*;
+#[cfg(test)]
+mod test;
+
+pub use {r#enum::*, r#struct::*};
 
 pub(crate) use std::fmt;

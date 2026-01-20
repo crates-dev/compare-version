@@ -1,5 +1,29 @@
 use crate::*;
 
+/// Implements the `Display` trait for `VersionError` to provide user-friendly error messages.
+impl fmt::Display for VersionError {
+    /// Formats the `VersionError` into a human-readable string.
+    ///
+    /// # Arguments
+    ///
+    /// - `&mut fmt::Formatter` - Formatter to write the output to.
+    ///
+    /// # Returns
+    ///
+    /// - `fmt::Result` - Result of the formatting operation.
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            VersionError::ParseError(msg) => write!(f, "Parse error: {msg}"),
+            VersionError::InvalidRangeFormat => {
+                write!(f, "Unsupported range format, only '^' or '~' are supported")
+            }
+            VersionError::MajorVersionError => write!(f, "Major version parsing error"),
+            VersionError::MinorVersionError => write!(f, "Minor version parsing error"),
+            VersionError::PatchVersionError => write!(f, "Patch version parsing error"),
+        }
+    }
+}
+
 impl Version {
     /// Parses a version from a string.
     ///
@@ -46,7 +70,7 @@ impl Version {
 }
 
 impl CompareVersion {
-    /// Compares two version strings and returns a `VersionComparison` enum.
+    /// Compares two version strings and returns a `VersionLevel` enum.
     ///
     /// # Arguments
     ///
@@ -55,17 +79,14 @@ impl CompareVersion {
     ///
     /// # Returns
     ///
-    /// - `Result<VersionComparison, VersionError>` - A `Result` indicating the comparison result on success, or a `VersionError` on failure.
-    pub fn compare_version(
-        version1: &str,
-        version2: &str,
-    ) -> Result<VersionComparison, VersionError> {
+    /// - `Result<VersionLevel, VersionError>` - A `Result` indicating the comparison result on success, or a `VersionError` on failure.
+    pub fn compare_version(version1: &str, version2: &str) -> Result<VersionLevel, VersionError> {
         let v1: Version = Version::parse(version1)?;
         let v2: Version = Version::parse(version2)?;
         match v1.cmp(&v2) {
-            std::cmp::Ordering::Greater => Ok(VersionComparison::Greater),
-            std::cmp::Ordering::Less => Ok(VersionComparison::Less),
-            std::cmp::Ordering::Equal => Ok(VersionComparison::Equal),
+            std::cmp::Ordering::Greater => Ok(VersionLevel::Greater),
+            std::cmp::Ordering::Less => Ok(VersionLevel::Less),
+            std::cmp::Ordering::Equal => Ok(VersionLevel::Equal),
         }
     }
 
