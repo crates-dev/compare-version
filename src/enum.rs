@@ -1,5 +1,5 @@
 /// Errors that can occur during version parsing and comparison.
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum VersionError {
     /// An error occurred during parsing, with a specific message.
     ParseError(String),
@@ -16,7 +16,7 @@ pub enum VersionError {
 /// Result of comparing two versions.
 ///
 /// Indicates whether the first version is greater than, less than, or equal to the second version.
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum VersionLevel {
     /// Indicates that the first version is greater than the second version.
     Greater,

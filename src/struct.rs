@@ -1,7 +1,7 @@
 /// Represents a semantic version with major, minor, patch, and pre-release components.
 ///
 /// Follows semantic versioning specification (SemVer).
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct Version {
     /// Major version number.
     pub(crate) major: u32,
@@ -16,5 +16,5 @@ pub(crate) struct Version {
 /// Utility for comparing version strings.
 ///
 /// Provides methods for version comparison and range matching.
-#[derive(Clone)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CompareVersion;
