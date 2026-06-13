@@ -10,8 +10,6 @@
 
 </center>
 
-[Official Documentation](https://docs.ltpp.vip/compare_version/)
-
 [Api Docs](https://docs.rs/compare_version/latest/)
 
 > A Rust library for comparing semantic versioning strings and checking version compatibility.
