@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Implements the `Display` trait for `VersionError` to provide user-friendly error messages.
 impl fmt::Display for VersionError {
@@ -40,7 +40,7 @@ impl Version {
             let mut patch_parts = patch_with_prerelease.splitn(2, '-');
             (
                 patch_parts.next().unwrap_or(""),
-                patch_parts.next().map(|s| s.to_string()),
+                patch_parts.next().map(|part: &str| part.to_string()),
             )
         } else {
             return Err(VersionError::ParseError(
